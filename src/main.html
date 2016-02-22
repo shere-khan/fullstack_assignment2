@@ -12,10 +12,12 @@
 		console.log(randomIndex);
 		var randomColor = colorArray[randomIndex];
 		console.log(randomColor);
+		var guessCounter = 0;
 		function doGame() {
 			var promptText = "I am thinking of one of these colors\n\nblue, cyan, gold, gray, green"
 					+ ", magenta, orange, red, white, yellow\n\nWhat color am I thinking of?";
 			while (true) {
+				guessCounter++;
 				guess = prompt(promptText);
 				if (guess == "") {
 					guess = prompt(promptText);
@@ -24,8 +26,6 @@
 					break;
 				}
 			}
-			// generate number
-			// while loop that repeats until player gets answer
 		}
 
 		function checkGuess(guess) {
@@ -41,7 +41,9 @@
 				alert("Sorry, your guess is alphabetically higher");
 				return false;
 			default:
-				alert("You guessed correctly!");
+				document.body.style.backgroundColor = randomColor;
+				alert("You guessed correctly!\nIt took you " + guessCounter
+						+ " guesses to finish the game");
 				return true;
 			}
 		}
