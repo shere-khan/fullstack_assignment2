@@ -22,29 +22,8 @@
 				if (guess == "") {
 					guess = prompt(promptText);
 					alert("You must enter a value");
-				} else if (checkGuess(guess)) {
+				} else if (guess == randomColor)
 					break;
-				}
-			}
-		}
-
-		function checkGuess(guess) {
-			if (colorArray.indexOf(guess) == -1) {
-				alert("Sorry, I don't recognize your color");
-				return false;
-			}
-			switch (guess.localeCompare(randomColor)) {
-			case -1:
-				alert("Sorry, your guess is alphabetically lower");
-				return false;
-			case 1:
-				alert("Sorry, your guess is alphabetically higher");
-				return false;
-			default:
-				document.body.style.backgroundColor = randomColor;
-				alert("You guessed correctly!\nIt took you " + guessCounter
-						+ " guesses to finish the game");
-				return true;
 			}
 		}
 	</script>
